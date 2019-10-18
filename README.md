@@ -1,4 +1,6 @@
-### userテーブル
+# DB設計
+
+### usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -7,7 +9,7 @@
 |password|string|null: false, unique: true| 
 
 ### Association
-- has_many :group, through: :groups_users
+- has_many :groups, through: :groups_users
 - belongs_to :user
 - has_many :messages
 
@@ -21,7 +23,7 @@
 - belongs_to :group
 - belongs_to :user
 
-### groupテーブル
+### groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
