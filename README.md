@@ -36,8 +36,8 @@
 ### messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comments|text|null: false|
-|image|string|null: false|
+|comments|text||
+|image|string||
 |user_id|integer|null: false|
 |group_id|integer|null: false|
 
