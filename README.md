@@ -45,5 +45,3 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
-
-hello hello hello
