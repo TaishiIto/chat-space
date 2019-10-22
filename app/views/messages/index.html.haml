@@ -1,20 +1,22 @@
 .wrapper
 
-  = render 'shared/side_bar'
+  = render 'side_bar'
 
   .chat
     .header
       .left-header
         .left-header__title
-          グループ名
+          GroupName
         %ul.left-header__members
           Member：
           %li.member
-            メンバー名
+            1
           %li.member
-            メンバー名
+            2
           %li.member
-            メンバー名
+            3
+          %li.member
+            4
       .right-header
         .right-header__button
           Edit
@@ -22,30 +24,39 @@
       .message
         .upper-message
           .upper-message__user-name
-            メンバー
+            1
           .upper-message__date
-            2017/04/04
+            0000/00/00
         .lower-meesage
           .lower-message__content
-            メッセージ
+            hello
       .message
         .upper-message
           .upper-message__user-name
-            メンバー
+            2
           .upper-message__date
-            2017/04/04
+            0000/00/00
         .lower-meesage
           .lower-message__content
-            メッセージ
+            hello2
       .message
         .upper-message
           .upper-message__user-name
-            メンバー
+            3
           .upper-message__date
-            2017/04/04
+            0000/00/00
         .lower-meesage
           .lower-message__content
-            メッセージ
+            hello3
+      .message
+        .upper-message
+          .upper-message__user-name
+            4
+          .upper-message__date
+            0000/00/00
+        .lower-meesage
+          .lower-message__content
+            首が長い
     .form
       %form
         %input.form__message
@@ -54,3 +65,6 @@
             = fa_icon 'picture-o', class: 'icon'
             %input.hidden{type: 'file'}
         %input.form__submit{type: 'submit', value: 'Send'}
+        -# %label.upload-label{for: "upload-icon"}
+        -#   %i.fa.fa-picture-o
+        -#   = f.file_field :image, id: "upload-icon"
