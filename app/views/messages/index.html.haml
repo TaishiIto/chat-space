@@ -21,6 +21,7 @@
         .right-header__button
           Edit
     .messages
+      = render partial: 'message', collection: @messages
       .message
         .upper-message
           .upper-message__user-name
@@ -57,14 +58,11 @@
         .lower-meesage
           .lower-message__content
             首が長い
-    .form
-      %form
-        %input.form__message
-        .form__mask
-          %label.form__mask__image
-            = fa_icon 'picture-o', class: 'icon'
-            %input.hidden{type: 'file'}
-        %input.form__submit{type: 'submit', value: 'Send'}
-        -# %label.upload-label{for: "upload-icon"}
-        -#   %i.fa.fa-picture-o
-        -#   = f.file_field :image, id: "upload-icon"
+        .form
+          = form_for [@group, @message] do |f|
+            = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+            .form__mask
+              = f.label :image, class: 'form__mask__image' do
+                = fa_icon 'picture-o', class: 'icon'
+                = f.file_field :image, class: 'hidden'
+            = f.submit 'Send', class: 'form__submit'
