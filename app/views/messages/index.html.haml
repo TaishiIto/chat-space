@@ -17,15 +17,15 @@
           Edit
     .messages
       = render partial: 'message', collection: @messages
-      .message
-        .upper-message
-          .upper-message__user-name
-            1
-          .upper-message__date
-            0000/00/00
-        .lower-meesage
-          .lower-message__content
-            hello
+      -# .message
+      -#   .upper-message
+      -#     .upper-message__user-name
+      -#       1
+      -#     .upper-message__date
+      -#       0000/00/00
+      -#   .lower-meesage
+      -#     .lower-message__content
+      -#       hello
     .form
       = form_for [@group, @message], html: { id: "new_message" } do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'

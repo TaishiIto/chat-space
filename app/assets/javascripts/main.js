@@ -1,9 +1,9 @@
 $(function() {
   function buildHTML(message) {
       //htmlに書き換え  
-    let image = ""
+    
 
-    image = message.image? `<img src="${message.image}">` : ""
+    let image = message.image? `<img src="${message.image}">` : ""
 
     let html = `<div class="message">
                   <div class="upper-message">
