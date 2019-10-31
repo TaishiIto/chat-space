@@ -19,15 +19,15 @@ $(function() {
     $("#user-search-result").append(html);
   }
 
-  function addDeleteUser(name, id) {
+  function addDeleteUser(id,name) {
     let html = `
     <div class="ChatMember clearfix" id="${id}">
-      <input name='group[user_ids][]' type='hidden' value=${ user_id }>
+      <input name='group[user_ids][]' type='hidden' value=${id}>
       <p class="ChatMember__name">${name}</p>
       <a class="ChatMember__remove ChatMember__button" data-user-id="${id}" data-user-name="${name}">削除</a>
     </div>`;
     
-    $(".ChatMembers").append(html);
+    $("#chat-group-users").append(html);
   }
 
   $("#user-search-field").on("keyup", function() {
@@ -59,16 +59,16 @@ $(function() {
       alert("通信エラーです。ユーザーが表示できません。");
     })
   });
-    $(document).on("click", ".user-search-add", function () {
-    $('.ChatMember clearfix').val();
-      var userId = $(this).data('user-id');
-      var userName = $(this).data('user-name');
-      addUser(userId,userName);
-      $(this).parent().remove();
-    });
+  $(document).on("click", ".user-search-add", function () {
+  $('#chat-group-users').val();
+    var userId = $(this).data('user-id');
+    var userName = $(this).data('user-name');
+    addDeleteUser(userId,userName);
+    $(this).parent().remove();
+  });
 
-    $(document).on("click", ".user-search-remove", function () {
-      $(this).parent().remove();
-    });
-  });  
+  $(document).on("click", ".user-search-remove", function () {
+    $(this).parent().remove();
+  });
+});  
 
