@@ -30,7 +30,6 @@ $(function() {
     let formData = new FormData(this);
     //urlの定義
     let url = $(this).attr("action");
-    
     $.ajax({
       url: url,
       type: 'POST',
@@ -39,18 +38,16 @@ $(function() {
       processData: false,
       contentType: false
     })
+      .done(function(data) {
+        let html = buildHTML(data);
+        $('.messages').append(html);
+        $('.form__submit').removeAttr('disabled');
+        $('#new_message')[0].reset();
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
+      })
 
-    //dataに@messageの情報が入る
-    .done(function(data) {
-      let html = buildHTML(data);
-      $('.messages').append(html);
-      $('.form__submit').removeAttr('disabled');
-      $('#new_message')[0].reset();
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
-    })
-
-    .fail(function() {
-      alert('error');
+      .fail(function() {
+        alert('error');
     });
   });
 });
