@@ -13,11 +13,11 @@
             %li.member
               = user.name
       .right-header
-        .right-header__button
-          Edit
+        -# リンクは要素全体にしたいからlinkを上げて要素のクラスを下にネストする。pathはターミナルのprefixを確認。pathだけだとどのgroupからとってくればいいか分からないから、controllerを見てbefore_actionで取っている@groupの値をもらう
+        = link_to edit_group_path(@group) do
+          .right-header__button Edit
     .messages
       = render partial: 'message', collection: @messages
-      
     .form
       = form_for [@group, @message], html: { id: "new_message" } do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
